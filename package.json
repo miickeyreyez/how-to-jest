@@ -5,15 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "lint": "eslint . --ext .js --cache",
     "node": "babel-watch ./index.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babel-watch": "^2.0.7",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0"
+    "babel-preset-env": "^1.7.0",
+    "babel-watch": "^2.0.7",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0"
