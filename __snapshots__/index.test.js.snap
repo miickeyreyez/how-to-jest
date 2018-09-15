@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`api function should return a user from api (Mock) 1`] = `
+Object {
+  "completed": true,
+  "id": 1001,
+  "title": "My own title",
+  "userId": 1001,
+}
+`;
+
+exports[`getUserFromApi function should return a user from api (Method 1) 1`] = `
+Object {
+  "completed": false,
+  "id": 1,
+  "title": "delectus aut autem",
+  "userId": 1,
+}
+`;
+
+exports[`getUserFromApi function should return a user from api (Method 2) 1`] = `
+Object {
+  "completed": false,
+  "id": 1,
+  "title": "delectus aut autem",
+  "userId": 1,
+}
+`;
