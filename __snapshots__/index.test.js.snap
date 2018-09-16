@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`api function should return a user from api (Mock) 1`] = `
+exports[`api function should return a user from api case 1 (Mock) 1`] = `
 Object {
   "completed": true,
   "id": 1001,

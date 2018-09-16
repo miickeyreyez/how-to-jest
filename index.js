@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch';
+import fs from 'fs';
 import MyCustomError from './error';
 
 const sum = (a, b) => a + b;
@@ -16,10 +17,23 @@ const customError = () => {
   throw new MyCustomError();
 };
 
+const createFile = (filePath, fileContent) => {
+  if (!filePath || !fileContent) {
+    throw new MyCustomError();
+  }
+
+  try {
+    fs.writeFileSync(filePath, fileContent);
+  } catch (error) {
+    throw new MyCustomError();
+  }
+};
+
 export {
   sum,
   isOddNumber,
   getUserFromApi,
   helloWorld,
   customError,
+  createFile,
 };

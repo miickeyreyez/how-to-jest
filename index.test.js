@@ -1,12 +1,13 @@
 import {
   sum, isOddNumber,
-  getUserFromApi, helloWorld, customError,
+  getUserFromApi, helloWorld, customError, createFile,
 } from '.';
 import api from './api';
 import * as functions from './functions';
 import MyCustomError from './error';
 
 jest.mock('./api');
+jest.mock('fs');
 
 // eslint-disable-next-line max-len
 functions.anotherHelloWorld = jest.fn().mockImplementation(() => 'Mock hello world');
@@ -67,12 +68,24 @@ describe('getUserFromApi function', () => {
 });
 
 describe('api function', () => {
-  it('should return a user from api (Mock)', async () => {
+  it('should return a user from api case 1 (Mock)', async () => {
     expect.assertions(1);
     await expect(api(true)).resolves.toMatchSnapshot();
   });
 
-  it('should thrown an exception (Method 2)', async () => {
+  it('should return a user from api case 2 (Mock)', async () => {
+    expect.assertions(1);
+    await expect(api(true)).resolves.toMatchObject(userStub);
+  });
+
+  it('should return a user from api case 3 (Mock)', async () => {
+    expect.assertions(1);
+    await expect(api(true)).resolves.toMatchObject({
+      id: expect.any(Number),
+    });
+  });
+
+  it('should thrown an exception', async () => {
     expect.assertions(1);
 
     return api(false).catch((error) => {
@@ -83,4 +96,20 @@ describe('api function', () => {
 
 test('Custom exception', () => {
   expect(() => customError()).toThrowError(new MyCustomError());
+});
+
+describe('createFile function', () => {
+  it('should generate file successfully', () => {
+    expect(() => createFile('filePath', 'fileContent')).not.toThrow();
+  });
+
+  it('should throw an exception when the file path is not provided', () => {
+    expect(() => createFile('filePath', null))
+      .toThrowError(new MyCustomError());
+  });
+
+  it('should throw an exception when the file content is not null', () => {
+    expect(() => createFile(null, 'fileContent'))
+      .toThrowError(new MyCustomError());
+  });
 });
