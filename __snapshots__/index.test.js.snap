@@ -17,12 +17,3 @@ Object {
   "userId": 1,
 }
 `;
-
-exports[`getUserFromApi function should return a user from api (Method 2) 1`] = `
-Object {
-  "completed": false,
-  "id": 1,
-  "title": "delectus aut autem",
-  "userId": 1,
-}
-`;
