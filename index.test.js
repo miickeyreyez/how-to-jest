@@ -24,6 +24,8 @@ api.mockImplementation(async flag => new Promise((resolve, reject) => {
   reject(new MyCustomError());
 }));
 
+// These are simple matchers 
+
 test('helloWorld function returns Hello World string', () => {
   expect(helloWorld()).toEqual('Hello World!');
 });
@@ -55,6 +57,8 @@ describe('isOdddNumber function', () => {
   });
 });
 
+// How to test an api
+
 describe('getUserFromApi function', () => {
   it('should return a user from api (Method 1)', async () => {
     const a = await getUserFromApi();
@@ -66,6 +70,8 @@ describe('getUserFromApi function', () => {
     await expect(getUserFromApi()).resolves.toMatchSnapshot();
   });
 });
+
+// This is a mock api
 
 describe('api function', () => {
   it('should return a user from api case 1 (Mock)', async () => {
@@ -93,6 +99,8 @@ describe('api function', () => {
     });
   });
 });
+
+// How to test custom exceptions
 
 test('Custom exception', () => {
   expect(() => customError()).toThrowError(new MyCustomError());
