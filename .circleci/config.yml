@@ -68,5 +68,9 @@ jobs:
         
       # run tests!
       - run: npm test && npm run env
-
-
+workflows:
+  version: 2
+  test:
+    jobs:
+    - build-dev
+    - build-prod
