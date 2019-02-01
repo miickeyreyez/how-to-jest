@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint . --ext .js --cache",
-    "node": "babel-watch ./index.js"
+    "node": "babel-watch ./index.js",
+    "env": "sh ./script.sh"
   },
   "author": "",
   "license": "ISC",
