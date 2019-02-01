@@ -35,7 +35,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run: npm test && npm run env
+      - run: npm test && (printenv |grep "DB_*")
   build-prod:
     context: prod
     docker:
@@ -67,7 +67,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run: npm test && npm run env
+      - run: npm test && (printenv |grep "DB_*")
 workflows:
   version: 2
   test:
